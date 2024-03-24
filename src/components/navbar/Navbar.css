@@ -1,0 +1,62 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 9%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    /* outline: 1px solid white; */
+  }
+  
+.logo {
+    /* outline: 1px solid white; */
+    display: flex;
+    justify-content: space-between;
+    column-gap: 1rem;
+}
+
+.logo a {
+  font-size: 2.5rem;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.logo .logo-icon {
+  height: 3rem;
+  width: 3rem;
+}
+
+.logo .logo-icon path {
+  stroke: var(--main-color);
+  stroke-width: .5;
+  transition: fill var(--transition-duration) ease;
+  fill: none;
+}
+
+.logo:hover > .logo-icon path {
+  fill: var(--main-color);
+}
+
+.navbar a {
+  font-size: 1.7rem;
+  color: var(--text-color);
+  font-weight: 500;
+  margin-left: 3.5rem;
+  transition: var(--transition-duration) ease;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  color: var(--main-color);
+}
+
+#menu-icon {
+  font-size: 3.6rem;
+  color: var(--text-color);
+  cursor: pointer;
+  display: none; /* for mobile view */
+}
