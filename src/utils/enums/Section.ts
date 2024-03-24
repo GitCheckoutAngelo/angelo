@@ -1,7 +1,7 @@
 export enum Section {
     Home = "Home",
     About = "About",
-    Education = "Education",
+    Journey = "Journey",
     Skills = "Skills",
     Contact = "Contact",
 }

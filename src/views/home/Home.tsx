@@ -7,9 +7,9 @@ const Home = () => {
       <div className="home-content">
         <h1>Hi, I'm <span>Angelo</span></h1>
         <div className="text-animate">
-          <h3>Software Engineeer</h3>          
+          <h3>Software Engineer</h3>          
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro placeat aut fuga quisquam ducimus, asperiores omnis perspiciatis adipisci harum similique quasi eum accusantium nisi ab aliquid hic at? Ipsa, nulla?</p>
+        <p>Step into my world of coding where I bring ideas to life. As a student eager to learn, I'm excited to share my journey and projects with you. Let's explore together!</p>
 
         <div className="btn-box">
           <a href="#" className="btn">Hire Me</a>
@@ -19,8 +19,8 @@ const Home = () => {
 
       <div className="home-sci">
         <a href="#"><i className='bx bxl-microsoft'/></a>
-        <a href="#"><i className='bx bxl-github'/></a>
-        <a href="#"><i className='bx bxl-linkedin'/></a>
+        <a href="https://github.com/gitCheckoutAngelo"><i className='bx bxl-github'/></a>
+        <a href="https://www.linkedin.com/in/atan958/"><i className='bx bxl-linkedin'/></a>
       </div>
       <div className="home-img-overlay"></div>
     </section>

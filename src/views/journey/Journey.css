@@ -1,0 +1,158 @@
+.journey {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: auto;
+    padding-bottom: 5rem;
+}
+
+.journey .item-group {
+    display: flex;
+    flex-wrap: wrap;
+    /* gap: 5rem; */
+    padding-bottom: 6rem;
+    width: 100%;
+}
+
+.journey .item-group.left {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.journey .item-group.right {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.journey .item-group .title {
+    margin: 0 0 1.5rem 2rem;
+
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.journey .item-group .title h3,i {
+    font-size: 2.5rem;
+}
+
+.journey .item-group .education-box {
+    width: 100%;
+}
+
+.journey .item-group.left .education-box {
+    border-left: .2rem solid var(--main-color);
+}
+
+.journey .item-group.right .education-box {
+    border-right: .2rem solid var(--main-color);
+}
+
+.journey .item-group .education-box .education-content {
+    position: relative;
+    overflow: hidden;
+}
+
+.journey .item-group.left .education-box .education-content {
+    padding-left: 4rem;
+}
+
+.journey .item-group.right .education-box .education-content {
+    padding-right: 4rem;
+}
+
+.journey .item-group .education-box .education-content .content {
+    position: relative;
+    border: .2rem solid var(--main-color);
+    border-radius: .6rem;
+    margin-bottom: 2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    
+    overflow: hidden;
+}
+
+.journey .item-group .education-box .education-content .content.reverse {
+    flex-direction: row-reverse;
+}
+
+.journey .item-group .education-box .education-content .content .text {
+    padding: 1.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    /* background-color: red; */
+}
+
+.journey .item-group .education-box .education-content .content .text .year {
+    font-size: 1.5rem;
+    color: var(--main-color);
+    padding-bottom: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.journey .item-group .education-box .education-content  .content .text h3 {
+    font-size: 2rem;
+}
+
+.journey .item-group .education-box .education-content  .content .text h4 {
+    font-weight: 200;
+    font-size: 1.6rem;
+}
+
+.journey .item-group .education-box .education-content  .content .text p {
+    font-size: 1.6rem;
+    padding-top: 1.5rem;
+}
+
+.journey .item-group .education-box .education-content  .content .text .year i {
+    padding-right: .5rem;
+}
+
+.education-content .image {
+    min-width: 48rem;
+    overflow: hidden;
+    background-color: var(--second-bg-color);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.education-content .image img {
+    max-width: 48rem;
+    object-fit: cover;
+}
+
+
+@media only screen and (max-width: 800px) {
+    .journey .item-group .education-box .education-content .content {
+        flex-direction: column !important;
+    }
+
+    .education-content .image {
+        max-width: 100%;
+    }
+
+    .education-content .image img {
+        width: 100% !important;
+    }
+    
+    .journey .item-group .education-box .education-content {
+        padding: 0 !important;
+    }
+
+    .journey .item-group .education-box {
+        border: 0px !important;
+    }
+}
