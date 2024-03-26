@@ -18,7 +18,6 @@ function App() {
       <Home />
       <About />
       <Journey />
-
     </body>
   )
 }

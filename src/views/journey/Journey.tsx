@@ -11,7 +11,7 @@ const educationItems: JourneyItem[] = [
     {
         date: "Feb 2020 - present",
         title: "BE(Hons) in Software Engineering",
-        subtitle: "University of Auckland",
+        subtitle: "The University of Auckland",
         description: "",
         imageSrc: undefined,
     }
