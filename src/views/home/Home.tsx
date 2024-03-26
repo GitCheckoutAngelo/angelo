@@ -1,9 +1,13 @@
-import {  } from 'react'
+import { LegacyRef } from 'react'
 import './Home.css'
 
-const Home = () => {
+interface HomeProps {
+  sectionRef: LegacyRef<HTMLElement>,
+}
+
+const Home = ({ sectionRef }: HomeProps) => {
   return (
-    <section className="home" id="home">
+    <section className="home" id="home" ref={sectionRef}>
       <div className="home-content">
         <h1>Hi, I'm <span>Angelo</span></h1>
         <div className="text-animate">

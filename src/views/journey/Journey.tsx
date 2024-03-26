@@ -1,4 +1,4 @@
-import { } from 'react'
+import { LegacyRef } from 'react'
 import './Journey.css'
 
 import robogalsSrc from '../../assets/robogals.jpg'
@@ -51,7 +51,12 @@ const extracurricularItems: JourneyItem[] = [
     }
 ];
 
-const Journey = () => {
+interface JourneyProps {
+    sectionRef: LegacyRef<HTMLElement>,
+}
+  
+
+const Journey = ({ sectionRef }: JourneyProps) => {
 
     const renderItemGroup = (group: JourneyItem[], startReversed: boolean) => {
         return group.map((item, index) => {
@@ -78,7 +83,7 @@ const Journey = () => {
     }
 
     return (
-        <section className="journey" id="journey">
+        <section className="journey" id="journey" ref={sectionRef}>
             <h2 className="heading">My <span>Journey</span></h2>
 
             <div className="item-group left" >

@@ -1,10 +1,14 @@
-import {  } from 'react'
+import { LegacyRef } from 'react'
 import './About.css'
 import aboutMeSrc from '../../assets/about.jpg'
 
-const About = () => {
+interface AboutProps {
+  sectionRef: LegacyRef<HTMLElement>,
+}
+
+const About = ({ sectionRef }: AboutProps) => {
   return (
-    <section className="about" id="about">
+    <section className="about" id="about" ref={sectionRef}>
         <h2 className="heading">About <span>Me</span></h2>
         <div className="about-img">
             <img src={aboutMeSrc} alt="" />
