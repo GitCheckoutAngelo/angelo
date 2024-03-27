@@ -62,7 +62,7 @@ const Journey = ({ sectionRef }: JourneyProps) => {
         return group.map((item, index) => {
             // default is to have picture start from right-hand side (reverse will be left-hand side)
             const reverse = index % 2 == 0 != startReversed;
-            const contentOrientation = reverse ? "reverse" : "";
+            const contentOrientation = reverse ? "reverse" : "default";
 
             return (
                 <div className="education-content" data-aos={`fade-${reverse ? "left" : "right"}`}>
