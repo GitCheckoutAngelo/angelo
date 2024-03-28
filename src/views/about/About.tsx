@@ -1,17 +1,21 @@
-import { LegacyRef } from 'react'
+import { LegacyRef, useState } from 'react'
 import './About.css'
 import aboutMeSrc from '../../assets/about.jpg'
+import interviews from '../../assets/interviews.gif'
 
 interface AboutProps {
   sectionRef: LegacyRef<HTMLElement>,
 }
 
 const About = ({ sectionRef }: AboutProps) => {
+  const [hover, setHover] = useState<boolean>(false);
+
   return (
     <section className="about" id="about" ref={sectionRef}>
         <h2 className="heading">About <span>Me</span></h2>
-        <div className="about-img">
-            <img src={aboutMeSrc} alt="" />
+        <div className="about-img" onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+            <img src={aboutMeSrc} className="avatar" />
+            <img src={hover ? interviews : aboutMeSrc} className="clip"/>
             <span className="circle-spin"></span>
         </div>
         <div className="about-content">

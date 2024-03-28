@@ -13,3 +13,26 @@ section .heading {
 section .heading span {
   color: var(--main-color);
 }
+
+
+section .item-group .title {
+  margin: 0 0 1.5rem 0;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  width: 100%;
+}
+
+section .item-group.left .title {
+  justify-content: start;
+}
+
+section .item-group.right .title {
+  justify-content: end;
+}
+
+section .item-group .title  h3,i {
+  font-size: 2.5rem;
+}
