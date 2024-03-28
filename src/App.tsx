@@ -16,7 +16,7 @@ function App() {
   const { ref: homeRef, inView: homeInView } = useInView({ threshold: 0.5 });
   const { ref: aboutRef, inView: aboutInView } = useInView({ threshold: 0.5 });
   const { ref: journeyRef, inView: journeyInView } = useInView({ threshold: 0.2 });
-  const { ref: projectsRef, inView: projectsInView } = useInView({ threshold: 0.5 });
+  const { ref: projectsRef, inView: projectsInView } = useInView({ threshold: 0.2 });
   const { ref: contactRef, inView: contactInView } = useInView({ threshold: 0.5 });
 
   useEffect(() => {
