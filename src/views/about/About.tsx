@@ -20,9 +20,10 @@ const About = ({ sectionRef }: AboutProps) => {
         </div>
         <div className="about-content">
             <h3>Aspiring Software Engineer!</h3>
-            <p>Hey there! I'm <span>Angelo Rojas Tangonan</span>, a budding software engineer fueled by a passion for problem-solving and technology. While I hail from the Philippines, Aotearoa New Zealand has been my home for most of my life.</p>
-            <p>From a young age, I've been captivated by the way technology influences our world, which naturally led me to pursue a career in software engineering. Whether I'm diving into code or tackling intricate puzzles, I thrive on challenges and the opportunity to innovate.</p>
-            <p>Beyond the digital realm, I'm an explorer at heart. I find joy in venturing into new territories, immersing myself in diverse communities, and embracing the richness of different cultures. For me, life is an adventure meant to be savored to the fullest.</p>
+            <p>Hey there! I'm <span>Angelo Rojas Tangonan</span>, a budding software engineer driven by a love for problem-solving and the wonders of technology. While I hail from the Philippines, Aotearoa New Zealand has been my home for most of my life.</p>
+            <p>Ever since I was young, I've been fascinated by the way technology influences our world, which naturally led me to pursue a career in software engineering. My particular focus lies in web development, with a strong interest in full-stack development.</p>
+
+            <p>Beyond software engineering, I'm a passionate advocate for gender diversity in STEM. Through volunteering and mentorship, I work to empower underrepresented groups, to help foster a more inclusive environment for all to thrive. I believe diversity drives innovation and I strive to contribute to a future where the tech industry reflects our global diversity.</p>
             <p>Kindly note that this portfolio website is still being developed. Thanks for your patience! 😊</p>
             <div className="btn-box btns">
                 <a href="#" className="btn">Read More</a>
