@@ -12,7 +12,7 @@ const Navbar = ({ currentSection, setCurrentSection }: NavbarProps) => {
     const renderButtons = () => Object.keys(Section).map(s => {
         const active = s === currentSection.toString() ? "active" : undefined;
         return (
-            <a href={`#${s.toLowerCase()}`} className={active} onClick={() => setCurrentSection(Section[s as Section])}>{s}</a>
+            <a key={s} href={`#${s.toLowerCase()}`} className={active} onClick={() => setCurrentSection(Section[s as Section])}>{s}</a>
         )
     })
 

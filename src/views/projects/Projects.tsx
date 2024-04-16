@@ -123,7 +123,7 @@ interface ProjectsProps {
 const Projects = ({ sectionRef }: ProjectsProps) => {
     
     const renderProjects = (projectItems: ProjectItem[]) => {
-        return projectItems.map(item => <Project item={item}/>);
+        return projectItems.map(item => <Project key={`${item.title} - ${item.subtitle}`} item={item}/>);
     }
 
     return (

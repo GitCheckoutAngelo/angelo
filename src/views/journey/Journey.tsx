@@ -65,7 +65,7 @@ const Journey = ({ sectionRef }: JourneyProps) => {
             const contentOrientation = reverse ? "reverse" : "default";
 
             return (
-                <div className="education-content" data-aos={`fade-${reverse ? "left" : "right"}`}>
+                <div key={`${item.title} - ${item.subtitle}`} className="education-content" data-aos={`fade-${reverse ? "left" : "right"}`}>
                     <div className={`content ${contentOrientation}`}>
                         {item.imageSrc && <div className="image">
                             <img src={item.imageSrc} />

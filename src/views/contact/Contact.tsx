@@ -48,7 +48,7 @@ const Contact = ({ sectionRef }: ContactProps) => {
 
                 <div className="input-box">
                     <div className="input-field">
-                        <input ref={nameRef} type="text" placeholder="Full Name" required/>
+                        <input ref={nameRef} type="text" placeholder="Full name" required/>
                         <span className="focus"></span>
                     </div>
                     <div className="input-field">
@@ -58,7 +58,7 @@ const Contact = ({ sectionRef }: ContactProps) => {
                 </div>
 
                 <div className="textarea-field">
-                    <textarea ref={messageRef} name="" id="" cols={30} rows={10} placeholder="Your Message"></textarea>
+                    <textarea ref={messageRef} cols={30} rows={10} placeholder="Write your message here..."></textarea>
                     <span className="focus"></span>
                 </div>
 

@@ -14,12 +14,15 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    column-gap: 1rem;
 }
 
 .contact form .input-box .input-field {
     position: relative;
     width: 49%;
     margin: .8rem 0;
+    z-index: 1;
+    flex: 1 1 28rem;
 }
 
 .contact form .input-box .input-field input,
@@ -36,20 +39,17 @@
 
 .contact form .input-box .input-field input::placeholder,
 .contact form .textarea-field textarea::placeholder {
-    color: var(--text-color);   
-}
-
-.contact form .input-box .input-field .input:focus~.focus, 
-.contact form .input-box .input-field .input:valid~.focus {
-    width: 100%;
+    color: var(--text-color);
+    font-weight: 300;
 }
 
 .contact form .textarea-field {
     position: relative;
     margin: .8rem 0 2.7rem;
     display: flex;
+    position: relative;
+    z-index: 1;
 }
-
 
 .contact form .textarea-field textarea {
     resize: none;
@@ -57,4 +57,21 @@
 
 .contact form .btn-box.btns .btn {
     cursor: pointer;
+}
+
+.contact form .input-box .input-field .focus,
+.contact form .textarea-field .focus {
+    position: absolute;
+    width: 0;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: var(--second-bg-color);
+    z-index: -1;
+    transition: .4s;
+}
+
+.contact form .input-box .input-field:hover > .focus,
+.contact form .textarea-field:hover > .focus {
+    width: 100%;
 }

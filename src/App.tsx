@@ -30,14 +30,14 @@ function App() {
   AOS.init();
 
   return (
-    <body>
+    <>
       <Navbar currentSection={currentSection} setCurrentSection={setCurrentSection}/>
       <Home sectionRef={homeRef}/>
       <About sectionRef={aboutRef} />
       <Journey sectionRef={journeyRef}/>
       <Projects sectionRef={projectsRef}/>
       <Contact sectionRef={contactRef}/>
-    </body>
+    </>
   )
 }
 
