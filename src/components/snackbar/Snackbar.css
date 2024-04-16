@@ -16,6 +16,11 @@
     background-color: var(--main-color);
 }
 
+/* so snackbar does not appear on first load */
+.snackbar.remove {
+    display: none !important;
+}
+
 .snackbar.display {
     animation: 300ms ease-out forwards display-up;
 }
