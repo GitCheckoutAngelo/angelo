@@ -10,6 +10,7 @@ import 'aos/dist/aos.css';
 import { useInView } from 'react-intersection-observer'
 import Contact from './views/contact/Contact'
 import Projects from './views/projects/Projects'
+import Snackbar from './components/snackbar/Snackbar'
 
 function App() {
   const [currentSection, setCurrentSection] = useState<Section>(Section.Home);
@@ -37,6 +38,7 @@ function App() {
       <Journey sectionRef={journeyRef}/>
       <Projects sectionRef={projectsRef}/>
       <Contact sectionRef={contactRef}/>
+      <Snackbar/>
     </>
   )
 }

@@ -3,19 +3,19 @@ import './Contact.css'
 
 import {  } from 'react';
 import emailjs from '@emailjs/browser'
-
-// import robogalsSrc from '../../assets/robogals.jpg'
+import { useSnackbar } from '../../contexts/SnackbarContext';
 
 interface ContactProps {
     sectionRef: LegacyRef<HTMLElement>,
 }
-  
 
 const Contact = ({ sectionRef }: ContactProps) => {
     const formRef = useRef<HTMLFormElement>(null);
     const nameRef = useRef<HTMLInputElement>(null);
     const emailRef = useRef<HTMLInputElement>(null);
     const messageRef = useRef<HTMLTextAreaElement>(null);
+
+    const snackbar = useSnackbar();
 
     useEffect(() => emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY), []);
 
@@ -34,16 +34,18 @@ const Contact = ({ sectionRef }: ContactProps) => {
             );
             formRef.current?.reset();
             await emailPromise;
+            snackbar?.display("Message was successfully sent", true);
         } 
         catch (error) {
           console.log(error);
+          snackbar?.display("Could not send message", false);
         }
     };
 
     return (
         <section className="contact" id="contact" ref={sectionRef}>
             <h2 className="heading">Contact <span>Me!</span></h2>
-
+            
             <form ref={formRef} onSubmit={handleSubmit}>
 
                 <div className="input-box">

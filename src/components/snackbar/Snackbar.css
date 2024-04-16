@@ -1,0 +1,85 @@
+.snackbar {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: auto;
+    max-width: 30rem;
+    border-radius: .4rem;
+    padding: .8rem 1.2rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 1rem;
+    background-color: var(--main-color);
+}
+
+.snackbar.display {
+    animation: 300ms ease-out forwards display-up;
+}
+
+@keyframes display-up {
+    from {
+      opacity: 0;
+      transform: translateY(3rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+
+.snackbar.close {
+    animation: 300ms ease-out forwards close-down;
+}
+
+@keyframes close-down {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(3rem);
+    }
+}
+
+.snackbar .label {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    column-gap: .5rem;
+}
+
+.snackbar .label p {
+    font-size: 1.5rem;
+}
+
+.snackbar .label i {
+    font-size: 2.5rem;
+}
+
+.snackbar .close-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    background-color: var(--text-color);
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.snackbar .close-btn i {
+    font-size: 2rem;
+    color: var(--main-color);
+    transition: .4s;
+}
+
+.snackbar .close-btn:hover > i {
+    color: var(--second-bg-color);
+}
