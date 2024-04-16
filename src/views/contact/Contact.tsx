@@ -1,5 +1,8 @@
-import { LegacyRef } from 'react'
+import { LegacyRef, useRef, useEffect } from 'react'
 import './Contact.css'
+
+import {  } from 'react';
+import emailjs from '@emailjs/browser'
 
 // import robogalsSrc from '../../assets/robogals.jpg'
 
@@ -9,44 +12,60 @@ interface ContactProps {
   
 
 const Contact = ({ sectionRef }: ContactProps) => {
+    const formRef = useRef<HTMLFormElement>(null);
+    const nameRef = useRef<HTMLInputElement>(null);
+    const emailRef = useRef<HTMLInputElement>(null);
+    const messageRef = useRef<HTMLTextAreaElement>(null);
+
+    useEffect(() => emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY), []);
+
+    const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        try {
+            const emailPromise = emailjs.send(
+                import.meta.env.VITE_EMAILJS_SERVICE_ID, 
+                import.meta.env.VITE_EMAILJS_TEMPLATE_ID, 
+                {
+                    senderName: nameRef?.current?.value,
+                    senderEmail: emailRef?.current?.value,
+                    senderMessage: messageRef?.current?.value,
+                }
+            );
+            formRef.current?.reset();
+            await emailPromise;
+        } 
+        catch (error) {
+          console.log(error);
+        }
+    };
 
     return (
         <section className="contact" id="contact" ref={sectionRef}>
             <h2 className="heading">Contact <span>Me!</span></h2>
 
-            {/* <form action="#">
+            <form ref={formRef} onSubmit={handleSubmit}>
 
                 <div className="input-box">
                     <div className="input-field">
-                        <input type="text" placeholder="Full Name" required/>
+                        <input ref={nameRef} type="text" placeholder="Full Name" required/>
                         <span className="focus"></span>
                     </div>
                     <div className="input-field">
-                        <input type="text" placeholder="Email Address" required/>
-                        <span className="focus"></span>
-                    </div>
-                </div>
-
-                <div className="input-box">
-                    <div className="input-field">
-                        <input type="number" placeholder="Mobile Number" required/>
-                        <span className="focus"></span>
-                    </div>
-                    <div className="input-field">
-                        <input type="text" placeholder="Email Subject" required/>
+                        <input ref={emailRef} type="text" placeholder="Email" required/>
                         <span className="focus"></span>
                     </div>
                 </div>
 
                 <div className="textarea-field">
-                    <textarea name="" id="" cols={30} rows={10} placeholder="Your Message"></textarea>
+                    <textarea ref={messageRef} name="" id="" cols={30} rows={10} placeholder="Your Message"></textarea>
                     <span className="focus"></span>
                 </div>
 
                 <div className="btn-box btns">
                     <button type="submit" className="btn">Submit</button>
                 </div>
-            </form> */}
+            </form>
         </section>
     )
 }
