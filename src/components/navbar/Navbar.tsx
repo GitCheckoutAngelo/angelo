@@ -1,4 +1,4 @@
-import {  } from 'react'
+import { useState } from 'react'
 import './Navbar.css'
 import { Section } from '../../utils/enums/Section'
 import LogoIcon from '../logo-icon/LogoIcon'
@@ -9,6 +9,8 @@ interface NavbarProps {
 }
 
 const Navbar = ({ currentSection, setCurrentSection }: NavbarProps) => {
+    const [menuOpen, setMenuOpen] = useState<boolean>(false);
+
     const renderButtons = () => Object.keys(Section).map(s => {
         const active = s === currentSection.toString() ? "active" : undefined;
         return (
@@ -23,9 +25,11 @@ const Navbar = ({ currentSection, setCurrentSection }: NavbarProps) => {
                 <a href="#">Angelo.</a>
             </div>
 
-            <i className="bx bx-menu" id="menu-icon"></i>
+            <button id="menu-btn" onClick={() => setMenuOpen(prev => !prev)}>
+                {menuOpen ? <i className="bx bx-x" id="menu-icon"></i> : <i className="bx bx-menu" id="menu-icon"></i>}
+            </button>
 
-            <nav className="navbar">
+            <nav className={`navbar ${menuOpen ? 'open' : ''}`}>
                 {renderButtons()}
             </nav>
         </header>

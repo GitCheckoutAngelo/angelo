@@ -28,6 +28,7 @@
     border-radius: .6rem;
     overflow: hidden;
     z-index: 1;
+    width: 100%;
 }
 
 .footer .top-btn a::before {
@@ -54,4 +55,20 @@
 
 .footer .top-btn a:hover > i {
     color: var(--main-color);
+}
+
+@media (max-width: 800px) {
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 3rem;
+    }
+
+    .footer .text p {
+        text-align: center;
+    }
+
+    .footer .top-btn {
+        width: 100%;
+    }
 }
