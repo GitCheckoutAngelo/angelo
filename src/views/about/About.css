@@ -61,7 +61,6 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) rotate(0);
     width: 100%;
     height: 100%;
     border-radius: 50%;
@@ -69,6 +68,7 @@
     border-bottom: .2rem solid var(--second-bg-color);
     border-left: .2rem solid var(--main-color);
     border-right: .2rem solid var(--main-color);
+    animation: aboutSpinner 8s linear infinite;
 }
 
 .about-content {
@@ -96,4 +96,14 @@
 
 .btn-box.btns a::before {
     background: var(--second-bg-color);
+}
+
+/* KEYFRAME ANIMATIONS */
+@keyframes aboutSpinner {
+    0% {
+        transform: translate(-50%, -50%) rotate(0);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
 }

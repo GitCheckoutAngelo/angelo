@@ -18,7 +18,7 @@ const SnackbarProvider = ({ children }: AuthProviderProps) => {
     const [message, setMessage] = useState<string>("");
     const [isDisplayed, setIsDisplayed] = useState<boolean>(false);
     const [isSuccessful, setIsSuccessful] = useState<boolean>(false);
-    const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
+    const [, setTimer] = useState<NodeJS.Timeout | null>(null);
 
     const display = (message: string, success: boolean) => {
         setMessage(message);

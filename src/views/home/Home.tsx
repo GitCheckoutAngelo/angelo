@@ -9,7 +9,7 @@ const Home = ({ sectionRef }: HomeProps) => {
   return (
     <section className="home" id="home" ref={sectionRef}>
       <div className="home-content">
-        <h1>Hi, I'm <span>Angelo</span></h1>
+        <h1>Angelo Tangonan</h1>
         <div className="text-animate">
           <h3>Software Engineer</h3>          
         </div>
@@ -17,14 +17,14 @@ const Home = ({ sectionRef }: HomeProps) => {
 
         <div className="btn-box">
           <a href="#" className="btn">Hire Me</a>
-          <a href="#" className="btn">Let's Chat</a>
+          <a href="#contact" className="btn">Let's Chat</a>
         </div>
       </div>
 
       <div className="home-sci">
-        <a href="#"><i className='bx bxl-microsoft'/></a>
-        <a href="https://github.com/gitCheckoutAngelo"><i className='bx bxl-github'/></a>
         <a href="https://www.linkedin.com/in/atan958/"><i className='bx bxl-linkedin'/></a>
+        <a href="https://github.com/gitCheckoutAngelo"><i className='bx bxl-github'/></a>
+        <a href="https://www.youtube.com/channel/UCkUr-Pm-3baqWrIILajSnEg"><i className='bx bxl-youtube'/></a>
       </div>
       <div className="home-img-overlay"></div>
     </section>

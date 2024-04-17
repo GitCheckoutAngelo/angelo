@@ -11,6 +11,7 @@ import { useInView } from 'react-intersection-observer'
 import Contact from './views/contact/Contact'
 import Projects from './views/projects/Projects'
 import Snackbar from './components/snackbar/Snackbar'
+import Footer from './components/footer/Footer'
 
 function App() {
   const [currentSection, setCurrentSection] = useState<Section>(Section.Home);
@@ -38,6 +39,7 @@ function App() {
       <Journey sectionRef={journeyRef}/>
       <Projects sectionRef={projectsRef}/>
       <Contact sectionRef={contactRef}/>
+      <Footer />
       <Snackbar/>
     </>
   )

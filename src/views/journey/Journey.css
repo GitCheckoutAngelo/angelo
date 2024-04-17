@@ -40,7 +40,6 @@
 
 .journey .item-group .education-box .education-content {
     position: relative;
-    /* background-color: red; */
 }
 
 .journey .item-group.left .education-box .education-content {
@@ -176,7 +175,6 @@
 
     .education-content .image {
         min-width: 100%;
-        background-color: red;
     }
 
     .education-content .image img {
