@@ -1,14 +1,16 @@
-import { LegacyRef, useState } from 'react'
+import { useState } from 'react'
 import './Projects.css'
-
-import geoquestClipSrc from '../../assets/projects/geoquest.gif';
-import geoquestSrc from'../../assets/projects/geoquest.png';
-import qlcsClipSrc from '../../assets/projects/qlcs.gif';
-import qlcsSrc from '../../assets/projects/qlcs.png';
-import fabricConnectorSrc from '../../assets/projects/fabric-connector.png';
-import mediaLibrarySrc from '../../assets/projects/media-library.png';
-import baddyMatchmakerSrc from '../../assets/projects/baddy-matchmaker.png';
-import investmentsTrackerSrc from '../../assets/projects/investments-tracker.png';
+import geoquestClipSrc from '../../assets/projects/geoquest.gif'
+import geoquestSrc from'../../assets/projects/geoquest.png'
+import qlcsClipSrc from '../../assets/projects/qlcs.gif'
+import qlcsSrc from '../../assets/projects/qlcs.png'
+import fabricConnectorSrc from '../../assets/projects/fabric-connector.png'
+import mediaLibrarySrc from '../../assets/projects/media-library.png'
+import baddyMatchmakerSrc from '../../assets/projects/baddy-matchmaker.png'
+import investmentsTrackerSrc from '../../assets/projects/investments-tracker.png'
+import { useSectionInView } from '../../contexts/SectionInViewContext'
+import { Section } from '../../utils/enums/Section'
+import { useSectionRef } from '../../contexts/SectionRefContext'
 
 type ProjectItem = {
     clip: string | undefined,
@@ -116,18 +118,17 @@ const Project = ({ item }: ProjectProps) => {
     );
 }
 
-interface ProjectsProps {
-    sectionRef: LegacyRef<HTMLElement>,
-}
+const Projects = () => {
+    const sectionRef = useSectionRef();
+    const sectionInView = useSectionInView();
 
-const Projects = ({ sectionRef }: ProjectsProps) => {
-    
     const renderProjects = (projectItems: ProjectItem[]) => {
         return projectItems.map(item => <Project key={`${item.title} - ${item.subtitle}`} item={item}/>);
     }
 
     return (
-        <section className="projects" id="projects" ref={sectionRef}>
+        <section className="projects" id="projects" ref={sectionRef?.get(Section.Projects)}>
+            <div className="in-view" ref={sectionInView?.getRef(Section.Projects)} />
             <h2 className="heading">My <span>Projects</span></h2>
 
             <div className="item-group">

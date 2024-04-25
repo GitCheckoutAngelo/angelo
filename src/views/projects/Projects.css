@@ -3,7 +3,7 @@
     padding-bottom: 7rem;
     background: var(--second-bg-color);
     grid-auto-rows: 1fr;
-
+    overflow-x: hidden;
 }
 
 .projects .item-group {

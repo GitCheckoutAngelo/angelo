@@ -55,6 +55,10 @@
     resize: none;
 }
 
+.contact form .btn-box.btns {
+    justify-content: center;
+}
+
 .contact form .btn-box.btns .btn {
     cursor: pointer;
 }

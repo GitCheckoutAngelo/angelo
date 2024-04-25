@@ -5,6 +5,7 @@
     flex-direction: column;
     min-height: auto;
     padding-bottom: 5rem;
+    overflow-x: hidden;
 }
 
 .journey .item-group {

@@ -1,13 +1,15 @@
-import { LegacyRef } from 'react'
 import './Home.scss'
+import { useSectionInView } from '../../contexts/SectionInViewContext'
+import { Section } from '../../utils/enums/Section';
+import { useSectionRef } from '../../contexts/SectionRefContext';
 
-interface HomeProps {
-  sectionRef: LegacyRef<HTMLElement>,
-}
+const Home = () => {
+  const sectionRef = useSectionRef();
+  const sectionInView = useSectionInView();
 
-const Home = ({ sectionRef }: HomeProps) => {
   return (
-    <section className="home" id="home" ref={sectionRef}>
+    <section className="home" id="home" ref={sectionRef?.get(Section.Home)}>
+      <div className="in-view" ref={sectionInView?.getRef(Section.Home)} />
       <div className="content">
         <h1>Angelo Tangonan</h1>
         <div className="text-animate">
@@ -25,7 +27,7 @@ const Home = ({ sectionRef }: HomeProps) => {
         <a href="https://github.com/gitCheckoutAngelo"><i className='bx bxl-github' /></a>
         <a href="https://www.youtube.com/channel/UCkUr-Pm-3baqWrIILajSnEg"><i className='bx bxl-youtube' /></a>
       </div>
-      <div className="home-img-overlay overlay"/>
+      <div className="overlay" />
     </section>
   )
 }

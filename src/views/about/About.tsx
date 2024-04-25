@@ -1,17 +1,20 @@
-import { LegacyRef, useState } from 'react'
+import { useState } from 'react'
 import './About.scss'
 import aboutMeSrc from '../../assets/about.jpg'
 import interviews from '../../assets/interviews.gif'
+import { useSectionInView } from '../../contexts/SectionInViewContext'
+import { Section } from '../../utils/enums/Section'
+import { useSectionRef } from '../../contexts/SectionRefContext'
 
-interface AboutProps {
-  sectionRef: LegacyRef<HTMLElement>,
-}
-
-const About = ({ sectionRef }: AboutProps) => {
+const About = () => {
   const [hover, setHover] = useState<boolean>(false);
 
+  const sectionRef = useSectionRef();
+  const sectionInView = useSectionInView();
+
   return (
-    <section className="about" id="about" ref={sectionRef}>
+    <section className="about" id="about" ref={sectionRef?.get(Section.About)}>
+        <div className="in-view" ref={sectionInView?.getRef(Section.About)} />
         <h2 className="heading">About <span>Me</span></h2>
         <div className="avatar" onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)}>
             <img src={aboutMeSrc} className="picture" />

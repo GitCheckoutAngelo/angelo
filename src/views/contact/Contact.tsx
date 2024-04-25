@@ -1,21 +1,22 @@
-import { LegacyRef, useRef, useEffect } from 'react'
+import { useRef, useEffect } from 'react'
 import './Contact.css'
 
 import {  } from 'react';
 import emailjs from '@emailjs/browser'
 import { useSnackbar } from '../../contexts/SnackbarContext';
+import { useSectionInView } from '../../contexts/SectionInViewContext';
+import { Section } from '../../utils/enums/Section';
+import { useSectionRef } from '../../contexts/SectionRefContext';
 
-interface ContactProps {
-    sectionRef: LegacyRef<HTMLElement>,
-}
-
-const Contact = ({ sectionRef }: ContactProps) => {
+const Contact = () => {
     const formRef = useRef<HTMLFormElement>(null);
     const nameRef = useRef<HTMLInputElement>(null);
     const emailRef = useRef<HTMLInputElement>(null);
     const messageRef = useRef<HTMLTextAreaElement>(null);
 
     const snackbar = useSnackbar();
+    const sectionRef = useSectionRef();
+    const sectionInView = useSectionInView();
 
     useEffect(() => emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY), []);
 
@@ -43,7 +44,8 @@ const Contact = ({ sectionRef }: ContactProps) => {
     };
 
     return (
-        <section className="contact" id="contact" ref={sectionRef}>
+        <section className="contact" id="contact" ref={sectionRef?.get(Section.Contact)}>
+            <div className="in-view" ref={sectionInView?.getRef(Section.Contact)} />
             <h2 className="heading">Contact <span>Me!</span></h2>
             
             <form ref={formRef} onSubmit={handleSubmit}>

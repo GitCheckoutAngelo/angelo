@@ -8,6 +8,11 @@
 
     .content {
         max-width: 60rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
 
         h1 {
             font-size: 5.6rem;
@@ -17,7 +22,7 @@
 
         .text-animate {
             position: relative;
-            width: 32.8rem;
+            display: flex;
 
             h3 {
                 font-size: 3.2rem;
@@ -54,16 +59,24 @@
         }
 
         .btn-box {
-            width: 34.5rem;
+            width: 100%;
+            max-width: 34.5rem;
+            flex-wrap: wrap;
+            column-gap: 2rem;
+
+            .btn {
+                flex: 0 0 auto;
+            }
         }
     }
 
     .socials {
         position: absolute;
         bottom: 4rem;
-        width: 170px;
+        // width: 170px;
         display: flex;
         justify-content: space-between;
+        column-gap: 2.5rem;
 
         a {
             position: relative;
@@ -142,3 +155,44 @@
         opacity: 0;
     }
 }
+
+@media (max-width: 500px) {
+    .home {
+        .content {
+            align-items: center;
+
+            h1 {
+                text-align: center;
+            }
+            .text-animate {
+                h3 {
+                    text-align: center;
+                    // font-size: 2.8rem;
+                }
+            }
+
+            p {
+                text-align: center;
+            }
+
+            .btn-box {
+                row-gap: 2rem;
+                justify-content: center;
+            }
+        }
+
+        .socials {
+            // background-color: red;
+            justify-content: center;
+            width: 100%;
+            margin: 0;
+            left: 0;
+        }
+
+        .overlay {
+            pointer-events: none;
+        }
+    }
+}
+
+

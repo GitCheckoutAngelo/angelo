@@ -1,4 +1,3 @@
-import { LegacyRef } from 'react'
 import './Journey.css'
 
 import robogalsSrc from '../../assets/robogals.jpg'
@@ -6,6 +5,9 @@ import becaSrc from '../../assets/beca.png'
 import vistaSrc from '../../assets/vista-2.jpg'
 import wdccSrc from '../../assets/wdcc.jpg'
 import JourneyItem from '../../utils/types/JourneyItem'
+import { useSectionInView } from '../../contexts/SectionInViewContext'
+import { Section } from '../../utils/enums/Section'
+import { useSectionRef } from '../../contexts/SectionRefContext'
 
 const educationItems: JourneyItem[] = [
     {
@@ -51,12 +53,9 @@ const extracurricularItems: JourneyItem[] = [
     }
 ];
 
-interface JourneyProps {
-    sectionRef: LegacyRef<HTMLElement>,
-}
-  
-
-const Journey = ({ sectionRef }: JourneyProps) => {
+const Journey = () => {
+    const sectionRef = useSectionRef();
+    const sectionInView = useSectionInView();
 
     const renderItemGroup = (group: JourneyItem[], startReversed: boolean) => {
         return group.map((item, index) => {
@@ -83,7 +82,8 @@ const Journey = ({ sectionRef }: JourneyProps) => {
     }
 
     return (
-        <section className="journey" id="journey" ref={sectionRef}>
+        <section className="journey" id="journey" ref={sectionRef?.get(Section.Journey)}>
+            <div className="in-view" ref={sectionInView?.getRef(Section.Journey)} />
             <h2 className="heading">My <span>Journey</span></h2>
 
             <div className="item-group left" >
