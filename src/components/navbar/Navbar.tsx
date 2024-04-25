@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './Navbar.css'
+import './Navbar.scss'
 import { Section } from '../../utils/enums/Section'
 import LogoIcon from '../logo-icon/LogoIcon'
 
@@ -12,24 +12,24 @@ const Navbar = ({ currentSection, setCurrentSection }: NavbarProps) => {
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
     const renderButtons = () => Object.keys(Section).map(s => {
-        const active = s === currentSection.toString() ? "active" : undefined;
+        const current = s === currentSection.toString() ? "current" : undefined;
         return (
-            <a key={s} href={`#${s.toLowerCase()}`} className={active} onClick={() => setCurrentSection(Section[s as Section])}>{s}</a>
+            <a key={s} href={`#${s.toLowerCase()}`} className={current} onClick={() => setCurrentSection(Section[s as Section])}>{s}</a>
         )
     })
 
     return (
-        <header className="header">
+        <header className="navbar">
             <div className="logo">
                 <LogoIcon />
                 <a href="#">Angelo.</a>
             </div>
 
-            <button id="menu-btn" onClick={() => setMenuOpen(prev => !prev)}>
+            <button className="menu-btn" onClick={() => setMenuOpen(prev => !prev)}>
                 {menuOpen ? <i className="bx bx-x" id="menu-icon"></i> : <i className="bx bx-menu" id="menu-icon"></i>}
             </button>
 
-            <nav className={`navbar ${menuOpen ? 'open' : ''}`}>
+            <nav className={`${menuOpen ? 'open' : ''}`}>
                 {renderButtons()}
             </nav>
         </header>

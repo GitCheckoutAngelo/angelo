@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import './App.css'
+import './App.scss'
 import { Section } from './utils/enums/Section'
 import Navbar from './components/navbar/Navbar'
 import Home from './views/home/Home'
