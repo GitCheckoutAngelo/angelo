@@ -11,7 +11,8 @@
         .list {
             display: flex;
             flex-wrap: wrap;
-            gap: 3rem;
+            column-gap: 3rem;
+            row-gap: 2rem;
             height: 100%;
         }
     }
