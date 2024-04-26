@@ -34,12 +34,21 @@
                         display: flex;
 
                         .thumbnail {
-                            width: 100%;
                             z-index: 1;
+                            width: 100%;
 
                             &.hideable {
                                 transition: .6s;
                             }
+                        }
+
+                        .clip {
+                            z-index: -1;
+                            width: 100%;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            transition: .8s;
                         }
 
                         .loading {
@@ -53,15 +62,6 @@
                             display: flex;
                             justify-content: center;
                             align-items: center;
-                        }
-
-                        .clip {
-                            width: 100%;
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            z-index: -1;
-                            transition: .8s;
                         }
                     }
 
@@ -112,7 +112,7 @@
                             .thumbnail {
                                 &.hideable {
                                     opacity: 0;
-                                    transform: translateX(100%);
+                                    transform: scale(.9);
                                 }
                             }
                         }
