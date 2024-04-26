@@ -30,7 +30,7 @@ const About = () => {
               <p>Kindly note that this portfolio website is still being developed. Thanks for your patience! 😊</p>
             </div>
             <div className="btn-box btns">
-                <a href="#" className="btn">Read More</a>
+                <a href="/" className="btn">Read More</a>
             </div>
         </div>
     </section>

@@ -35,7 +35,7 @@ const Navbar = () => {
         <header className="navbar">
             <div className="logo">
                 <LogoIcon />
-                <a href="#">Angelo.</a>
+                <a href="/">Angelo.</a>
             </div>
 
             <button className="menu-btn" onClick={() => setMenuOpen(prev => !prev)}>

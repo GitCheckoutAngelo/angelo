@@ -18,14 +18,14 @@ const Home = () => {
         <p>Step into my world of coding where I bring ideas to life. As a student eager to learn, I'm excited to share my journey and projects with you. Let's explore together!</p>
 
         <div className="btn-box">
-          <a href="#" className="btn">Hire Me</a>
-          <a href="#contact" className="btn">Let's Chat</a>
+          <button className="btn" onClick={() => sectionRef?.scrollTo(Section.Journey)}>Hire Me</button>
+          <button className="btn" onClick={() => sectionRef?.scrollTo(Section.Contact)}>Let's Chat</button>
         </div>
       </div>
       <div className="socials">
-        <a href="https://www.linkedin.com/in/atan958/"><i className='bx bxl-linkedin' /></a>
-        <a href="https://github.com/gitCheckoutAngelo"><i className='bx bxl-github' /></a>
-        <a href="https://www.youtube.com/channel/UCkUr-Pm-3baqWrIILajSnEg"><i className='bx bxl-youtube' /></a>
+        <a target="_blank" href="https://www.linkedin.com/in/atan958/"><i className='bx bxl-linkedin' /></a>
+        <a target="_blank" href="https://github.com/gitCheckoutAngelo"><i className='bx bxl-github' /></a>
+        <a target="_blank" href="https://www.youtube.com/channel/UCkUr-Pm-3baqWrIILajSnEg"><i className='bx bxl-youtube' /></a>
       </div>
       <div className="overlay" />
     </section>

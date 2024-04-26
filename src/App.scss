@@ -80,6 +80,7 @@ i {
         z-index: 1;
         overflow: hidden;
         transition: var(--transition-duration) ease;
+        cursor: pointer;
 
         &:hover {
             color: var(--main-color);

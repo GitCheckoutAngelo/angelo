@@ -12,7 +12,7 @@
     }
 
     .top-btn {
-        a {
+        button {
             position: relative;
             display: inline-flex;
             justify-content: center;
@@ -24,6 +24,7 @@
             overflow: hidden;
             z-index: 1;
             width: 100%;
+            cursor: pointer;
 
             &:before {
                 content: '';
