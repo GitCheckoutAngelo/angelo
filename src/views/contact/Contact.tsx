@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react'
-import './Contact.css'
+import './Contact.scss'
 
 import {  } from 'react';
 import emailjs from '@emailjs/browser'
@@ -52,18 +52,18 @@ const Contact = () => {
 
                 <div className="input-box">
                     <div className="input-field">
-                        <input ref={nameRef} type="text" placeholder="Full name" required/>
-                        <span className="focus"></span>
+                        <input ref={nameRef} type="text" placeholder="Full name" className="text-input" required/>
+                        <span/>
                     </div>
                     <div className="input-field">
-                        <input ref={emailRef} type="text" placeholder="Email" required/>
-                        <span className="focus"></span>
+                        <input ref={emailRef} type="text" placeholder="Email" className="text-input" required/>
+                        <span/>
                     </div>
                 </div>
 
                 <div className="textarea-field">
-                    <textarea ref={messageRef} cols={30} rows={10} placeholder="Write your message here..."></textarea>
-                    <span className="focus"></span>
+                    <textarea ref={messageRef} cols={30} rows={10} placeholder="Write your message here..." className="text-input"></textarea>
+                    <span/>
                 </div>
 
                 <div className="btn-box btns">
