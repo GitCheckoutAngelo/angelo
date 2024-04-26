@@ -1,0 +1,204 @@
+.journey {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: auto;
+    padding-bottom: 5rem;
+    overflow-x: hidden;
+
+    .item-group {
+        display: flex;
+        flex-wrap: wrap;
+        padding-bottom: 6rem;
+        width: 100%;
+
+        .timeline {
+            width: 100%;
+
+            .item {
+                position: relative;
+
+                // timeline dot
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    width: 2rem;
+                    height: 2rem;
+                    background: var(--main-color);
+                    border-radius: 50%;
+                    z-index: 1;
+                }
+
+                .content {
+                    position: relative;
+                    border: .2rem solid var(--main-color);
+                    border-radius: .6rem;
+                    margin-bottom: 2rem;
+                
+                    display: flex;
+                    justify-content: center;
+                    align-items: stretch;
+                    
+                    overflow: hidden;
+
+                    // item overlay
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        width: 0;
+                        height: 100%;
+                        background: var(--second-bg-color);
+                        z-index: -1;
+                        transition: .6s;
+                    }
+
+                    &.reverse {
+                        flex-direction: row-reverse;
+
+                        // overlay (reverse)
+                        &:before {
+                            right: 0;
+                        }
+                    }
+
+                    &.default {
+                        // overlay (default)
+                        &:before {
+                            left: 0;
+                        }
+                    }
+
+                    .text {
+                        padding: 1.5rem 3rem;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        text-align: center;
+
+                        .year {
+                            font-size: 1.5rem;
+                            color: var(--main-color);
+                            padding-bottom: .5rem;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            column-gap: .5rem;
+                        }
+
+                        h3 {
+                            font-size: 2rem;
+                        }
+
+                        h4 {
+                            font-weight: 200;
+                            font-size: 1.6rem;
+                        }
+
+                        p {
+                            font-size: 1.6rem;
+                            padding-top: 1.5rem;
+                        }
+                    }
+
+                    &:hover {
+                        // animation for overlay
+                        &:before {
+                            width: 100%;
+                        }
+                    }
+                }
+
+                .image {
+                    min-width: 48rem;
+                    overflow: hidden;
+                    background-color: var(--second-bg-color);
+                
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    img {
+                        max-width: 48rem;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+
+        &.left {
+            .timeline {
+                border-left: .2rem solid var(--main-color);
+
+                .item {
+                    padding-left: 4rem;
+
+                    // timeline dot (left)
+                    &:before {
+                        left: -1.1rem;
+                    }
+                }
+            }
+        }
+
+        &.right {
+            .timeline {
+                border-right: .2rem solid var(--main-color);
+
+                .item {
+                    padding-right: 4rem;
+
+                    // timeline dot (right)
+                    &:before {
+                        right: -1.1rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .journey {
+        .item-group {
+            .timeline {
+                .item {
+                    .content {
+                        flex-direction: column !important;
+                    }
+
+                    .image {
+                        min-width: 100%;
+
+                        img {
+                            width: 100% !important;
+                            min-width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* get rid of vertical blue lines for each item group */
+@media only screen and (max-width: 800px) {
+    .journey {
+        .item-group {
+            .timeline {
+                border: 0px !important;
+
+                .item {
+                    padding: 0 !important;
+
+                    &:before {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

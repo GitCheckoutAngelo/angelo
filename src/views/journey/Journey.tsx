@@ -1,70 +1,22 @@
-import './Journey.css'
-
-import robogalsSrc from '../../assets/robogals.jpg'
-import becaSrc from '../../assets/beca.png'
-import vistaSrc from '../../assets/vista-2.jpg'
-import wdccSrc from '../../assets/wdcc.jpg'
-import JourneyItem from '../../utils/types/JourneyItem'
+import './Journey.scss'
 import { useSectionInView } from '../../contexts/SectionInViewContext'
 import { Section } from '../../utils/enums/Section'
 import { useSectionRef } from '../../contexts/SectionRefContext'
-
-const educationItems: JourneyItem[] = [
-    {
-        date: "Feb 2020 - present",
-        title: "BE(Hons) in Software Engineering",
-        subtitle: "The University of Auckland",
-        description: "",
-        imageSrc: undefined,
-    }
-];
-
-const experienceItems: JourneyItem[] = [
-    {
-        date: "Nov 2023 - Feb 2024",
-        title: "Software Engineer Intern",
-        subtitle: "Beca",
-        description: "At Beca, I led an R&D project that worked on integrating Microsoft Fabric into BEYON, our digital twin platform. This bold move aimed to revolutionize how we handle asset data within the platform, tapping into the powerful capabilities of Microsoft Fabric.",
-        imageSrc: becaSrc,
-    },
-    {
-        date: "Nov 2022 - Feb 2023",
-        title: "Software Engineer Intern",
-        subtitle: "Vista Entertainment Solutions",
-        description: "During my time at Vista, I embarked on an exciting venture: exploring whether Cloudflare could rival more well-established cloud platforms like AWS or Azure. This proof of concept project was all about pushing boundaries and discovering new possibilities in the cloud technology landscape.",
-        imageSrc: vistaSrc,
-    }
-];
-
-const extracurricularItems: JourneyItem[] = [
-    {
-        date: "Mar 2022 - present",
-        title: "Lead Volunteer",
-        subtitle: "Robogals Auckland",
-        description: "As the lead volunteer at Robogals Auckland, my goal is clear: to ignite passion for STEM in young minds and bridge the gender gap in the field. My job is more than just teaching robotics and technology; it is about sparking curiosity, breaking stereotypes, and empowering the next generation of engineers.",
-        imageSrc: robogalsSrc,
-    },
-    {
-        date: "Mar 2022 - Nov 2022",
-        title: "Web Developer",
-        subtitle: "Web Development and Consulting Club",
-        description: "At WDCC, I immersed myself in cutting-edge web development, learning the latest technologies and best practices. Working on real projects with clients gave me hands-on experience and insight into the software engineering industry.",
-        imageSrc: wdccSrc,
-    }
-];
+import { educationJourney, experienceJourney, extracurricularJourney } from '../../utils/data/journey'
+import JourneyItemData from '../../utils/types/JourneyItemData'
 
 const Journey = () => {
     const sectionRef = useSectionRef();
     const sectionInView = useSectionInView();
 
-    const renderItemGroup = (group: JourneyItem[], startReversed: boolean) => {
+    const renderItemGroup = (group: JourneyItemData[], startReversed: boolean) => {
         return group.map((item, index) => {
             // default is to have picture start from right-hand side (reverse will be left-hand side)
             const reverse = index % 2 == 0 != startReversed;
             const contentOrientation = reverse ? "reverse" : "default";
 
             return (
-                <div key={`${item.title} - ${item.subtitle}`} className="education-content" data-aos={`fade-${reverse ? "left" : "right"}`}>
+                <div key={`${item.title} - ${item.subtitle}`} className="item" data-aos={`fade-${reverse ? "left" : "right"}`}>
                     <div className={`content ${contentOrientation}`}>
                         {item.imageSrc && <div className="image">
                             <img src={item.imageSrc} />
@@ -91,8 +43,8 @@ const Journey = () => {
                     <i className="bx bxs-graduation"></i>
                     <h3>Education</h3>
                 </div>
-                <div className="education-box">
-                    {renderItemGroup(educationItems, true)}
+                <div className="timeline">
+                    {renderItemGroup(educationJourney, true)}
                 </div>
             </div>
 
@@ -101,8 +53,8 @@ const Journey = () => {
                     <i className="bx bxs-briefcase"></i>
                     <h3>Experience</h3>
                 </div>
-                <div className="education-box">
-                    {renderItemGroup(experienceItems, false)}
+                <div className="timeline">
+                    {renderItemGroup(experienceJourney, false)}
                 </div>
             </div>
 
@@ -111,8 +63,8 @@ const Journey = () => {
                     <i className="bx bxs-star"></i>
                     <h3>Extra-curricular</h3>
                 </div>
-                <div className="education-box">
-                    {renderItemGroup(extracurricularItems, true)}
+                <div className="timeline">
+                    {renderItemGroup(extracurricularJourney, true)}
                 </div>
             </div>
 

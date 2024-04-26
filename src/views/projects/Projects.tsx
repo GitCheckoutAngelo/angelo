@@ -23,7 +23,7 @@ const Projects = () => {
             <div className="in-view" ref={sectionInView?.getRef(Section.Projects)} />
             <h2 className="heading">My <span>Projects</span></h2>
 
-            <div className="item-group">
+            <div className="item-group left">
                 <div className="title">
                     <i className="bx bxs-book"></i>
                     <h3>Learning Tools</h3>
@@ -43,7 +43,7 @@ const Projects = () => {
                 </div>
             </div>
 
-            <div className="item-group">
+            <div className="item-group left">
                 <div className="title">
                     <i className="bx bxs-tennis-ball"></i>
                     <h3>Hobbies</h3>
