@@ -21,18 +21,6 @@
             font-weight: 600;
         }
 
-        svg {
-            width: 3rem;
-            height: 3rem;
-
-            path {
-                stroke: var(--main-color);
-                stroke-width: .5;
-                transition: fill var(--transition-duration) ease;
-                fill: rgba(255, 255, 255, 0);
-            }
-        }
-
         &:hover {
             svg {
                 path {
