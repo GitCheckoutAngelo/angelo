@@ -29,14 +29,30 @@
                         width: 100%;
                         overflow: hidden;
                         position: relative;
+                        z-index: 1;
+                        background-color: var(--second-bg-color);
+                        display: flex;
 
                         .thumbnail {
                             width: 100%;
                             z-index: 1;
 
                             &.hideable {
-                                transition: .8s;
+                                transition: .6s;
                             }
+                        }
+
+                        .loading {
+                            z-index: -3;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            transition: .4s;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
                         }
 
                         .clip {
@@ -45,6 +61,7 @@
                             top: 0;
                             left: 0;
                             z-index: -1;
+                            transition: .8s;
                         }
                     }
 
@@ -95,6 +112,7 @@
                             .thumbnail {
                                 &.hideable {
                                     opacity: 0;
+                                    transform: translateX(100%);
                                 }
                             }
                         }
@@ -154,5 +172,37 @@
                 }
             }
         }
+    }
+}
+
+
+.lds-dual-ring {
+    /* change color here */
+    color: var(--text-color);
+    box-sizing: border-box;
+    display: inline-block;
+    width: 6rem;
+    height: 6rem;
+
+    &:after {
+        content: " ";
+        display: block;
+        width: 6rem;
+        height: 6rem;
+        border-radius: 50%;
+        border: .6rem solid currentColor;
+        border-color: currentColor transparent currentColor transparent;
+        animation: clipLoading 1.2s linear infinite;
+        box-sizing: inherit;
+    }
+}
+
+@keyframes clipLoading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
     }
 }

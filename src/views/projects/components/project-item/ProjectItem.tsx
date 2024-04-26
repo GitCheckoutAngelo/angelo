@@ -9,12 +9,15 @@ interface ProjectItemProps {
 const ProjectItem = ({ item }: ProjectItemProps) => {
     const [hover, setHover] = useState<boolean>(false);
 
+    const clip = hover ? item.clip : undefined;
+
     return (
         <div className="item" data-aos="fade-up">
             <div className="content" onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)}>
                 <div className="image">
+                    {hover && <div className="loading lds-dual-ring"/>}
+                    <img src={clip} className="clip" />
                     <img src={item.thumbnail} className={`thumbnail ${item.clip ? 'hideable' : ''}`} />
-                    <img src={hover ? item.clip : undefined} className="clip" />
                 </div>
                 <div className="text">
                     <div className="year"><i className="bx bxs-calendar"></i>{item.date}</div>
