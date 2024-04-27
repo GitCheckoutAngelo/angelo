@@ -1,0 +1,19 @@
+.projects{
+    min-height: auto;
+    padding-bottom: 7rem;
+    background: var(--second-bg-color);
+    grid-auto-rows: 1fr;
+    overflow-x: hidden;
+
+    .item-group {
+        padding-bottom: 6rem;
+
+        .list {
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: 3rem;
+            row-gap: 2rem;
+            height: 100%;
+        }
+    }
+}

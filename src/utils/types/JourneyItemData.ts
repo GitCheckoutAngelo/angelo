@@ -1,4 +1,4 @@
-type JourneyItem = {
+type JourneyItemData = {
     date: string,
     title: string,
     subtitle: string,
@@ -6,4 +6,4 @@ type JourneyItem = {
     imageSrc: string | undefined,
 };
 
-export default JourneyItem;
+export default JourneyItemData;

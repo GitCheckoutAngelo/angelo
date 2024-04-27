@@ -1,0 +1,209 @@
+.projects {
+    .item-group {
+        .list {
+            .item {
+                flex: 1 1 60rem;
+
+                .content {
+                    position: relative;
+                    border: .2rem solid var(--main-color);
+                    height: 100%;
+                    border-radius: .6rem;
+
+                    z-index: 1;
+                    overflow: hidden;
+
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 0;
+                        height: 100%;
+                        background: var(--bg-color);
+                        z-index: -1;
+                        transition: .6s;
+                    }
+
+                    .image {
+                        width: 100%;
+                        overflow: hidden;
+                        position: relative;
+                        z-index: 1;
+                        background-color: var(--second-bg-color);
+                        display: flex;
+
+                        .thumbnail {
+                            z-index: 1;
+                            width: 100%;
+
+                            &.hideable {
+                                transition: .6s;
+                            }
+                        }
+
+                        .clip {
+                            z-index: -1;
+                            width: 100%;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            transition: .8s;
+                        }
+
+                        .loading {
+                            z-index: -3;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            transition: .4s;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                    }
+
+                    .text {
+                        padding: 2rem 3rem;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        text-align: center;
+
+                        .year {
+                            font-size: 1.5rem;
+                            color: var(--main-color);
+                            padding-bottom: .5rem;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+
+                        h3 {
+                            font-size: 2rem;
+                        }
+
+                        h4 {
+                            font-weight: 200;
+                            font-size: 1.6rem;
+                        }
+
+                        p {
+                            font-size: 1.6rem;
+                            padding-top: 1.5rem;
+                        }
+
+                        .year {
+                            i {
+                                padding-right: .5rem;
+                                font-size: 2.5rem;
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        &:before {
+                            width: 100%;
+                        }
+
+                        .image {
+                            .thumbnail {
+                                &.hideable {
+                                    opacity: 0;
+                                    transform: scale(.9);
+                                }
+                            }
+                        }
+                    }
+
+                    .link-box {
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 1rem 0 3rem 0;
+
+                        font-size: 1.5rem;
+                        color: var(--text-color);
+
+                        .link {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            gap: .5rem;
+
+                            border: .2rem solid var(--main-color);
+                            border-radius: .6rem;
+                            padding: .6rem 1rem;
+                            position: relative;
+
+                            &:before {
+                                content: '';
+                                position: absolute;
+                                left: 0;
+                                width: 0;
+                                height: 100%;
+                                background-color: var(--main-color);
+                                z-index: -1;
+                                transition: .4s;
+                            }
+
+                            &>* {
+                                font-size: 1.6rem;
+                                font-weight: 500;
+                                color: var(--main-color);
+                                cursor: pointer;
+                                transition: .4s;
+                            }
+
+                            &:hover {
+                                &:before {
+                                    width: 100%;
+                                }
+
+                                &>* {
+                                    color: var(--bg-color);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.lds-dual-ring {
+    /* change color here */
+    color: var(--text-color);
+    box-sizing: border-box;
+    display: inline-block;
+    width: 6rem;
+    height: 6rem;
+
+    &:after {
+        content: " ";
+        display: block;
+        width: 6rem;
+        height: 6rem;
+        border-radius: 50%;
+        border: .6rem solid currentColor;
+        border-color: currentColor transparent currentColor transparent;
+        animation: clipLoading 1.2s linear infinite;
+        box-sizing: inherit;
+    }
+}
+
+@keyframes clipLoading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
